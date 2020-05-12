@@ -24,9 +24,8 @@ struct EagerSheetEnvironment {
 }
 
 let eagerSheetReducer = counterReducer
-  .optional
   .pullback(
-    state: \.optionalCounter,
+    state: OptionalPath(\.optionalCounter),
     action: /EagerSheetAction.optionalCounter,
     environment: { _ in CounterEnvironment() }
   )

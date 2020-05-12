@@ -29,11 +29,8 @@ struct EagerListNavigationEnvironment {
 }
 
 let eagerListNavigationReducer = counterReducer
-  .optional
-  .pullback(state: \Identified.value, action: .self, environment: { $0 })
-  .optional
   .pullback(
-    state: \EagerListNavigationState.selection,
+    state: OptionalPath(\.selection).appending(path: \.value),
     action: /EagerListNavigationAction.counter,
     environment: { _ in CounterEnvironment() }
   )

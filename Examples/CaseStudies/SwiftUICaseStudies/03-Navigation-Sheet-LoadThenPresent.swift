@@ -27,9 +27,8 @@ struct LazySheetEnvironment {
 }
 
 let lazySheetReducer = counterReducer
-  .optional
   .pullback(
-    state: \.optionalCounter,
+    state: OptionalPath(\.optionalCounter),
     action: /LazySheetAction.optionalCounter,
     environment: { _ in CounterEnvironment() }
   )

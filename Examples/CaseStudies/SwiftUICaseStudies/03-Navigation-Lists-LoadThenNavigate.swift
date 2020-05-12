@@ -33,13 +33,7 @@ struct LazyListNavigationEnvironment {
 let lazyListNavigationReducer =
   counterReducer
   .pullback(
-    state: \Identified.value,
-    action: .self,
-    environment: { $0 }
-  )
-  .optional
-  .pullback(
-    state: \LazyListNavigationState.selection,
+    state: OptionalPath(\.selection).appending(path: \.value),
     action: /LazyListNavigationAction.counter,
     environment: { _ in CounterEnvironment() }
   )
