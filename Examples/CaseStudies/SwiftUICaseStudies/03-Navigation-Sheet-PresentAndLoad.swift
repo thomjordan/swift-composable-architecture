@@ -26,7 +26,7 @@ struct PresentAndLoadEnvironment {
 let presentAndLoadReducer = counterReducer
   .pullback(
     state: OptionalPath(\.optionalCounter),
-    action: /EagerSheetAction.optionalCounter,
+    action: /PresentAndLoadAction.optionalCounter,
     environment: { _ in CounterEnvironment() }
   )
   .combined(

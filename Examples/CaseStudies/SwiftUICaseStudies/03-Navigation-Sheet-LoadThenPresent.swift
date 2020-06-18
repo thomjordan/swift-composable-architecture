@@ -29,7 +29,7 @@ struct LoadThenPresentEnvironment {
 let loadThenPresentReducer = counterReducer
   .pullback(
     state: OptionalPath(\.optionalCounter),
-    action: /LazySheetAction.optionalCounter,
+    action: /LoadThenPresentAction.optionalCounter,
     environment: { _ in CounterEnvironment() }
   )
   .combined(

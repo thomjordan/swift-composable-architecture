@@ -31,7 +31,7 @@ struct NavigateAndLoadListEnvironment {
 let navigateAndLoadListReducer = counterReducer
   .pullback(
     state: OptionalPath(\.selection).appending(path: \.value),
-    action: /EagerListNavigationAction.counter,
+    action: /NavigateAndLoadListAction.counter,
     environment: { _ in CounterEnvironment() }
   )
   .combined(

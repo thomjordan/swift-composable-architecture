@@ -29,7 +29,7 @@ struct LoadThenNavigateEnvironment {
 let loadThenNavigateReducer = counterReducer
   .pullback(
     state: OptionalPath(\.optionalCounter),
-    action: /LazyNavigationAction.optionalCounter,
+    action: /LoadThenNavigateAction.optionalCounter,
     environment: { _ in CounterEnvironment() }
   )
   .combined(
