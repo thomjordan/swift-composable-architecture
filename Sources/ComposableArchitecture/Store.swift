@@ -135,7 +135,7 @@ public final class Store<State, Action> {
     self.scope(state: toLocalState, action: { $0 })
   }
 
-  func send(_ action: Action) {
+  public func send(_ action: Action) {
     self.synchronousActionsToSend.append(action)
 
     while !self.synchronousActionsToSend.isEmpty {
